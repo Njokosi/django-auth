@@ -15,8 +15,6 @@ RUN apt-get -y update \
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-
-
 ### Set working directory
 WORKDIR /app
 
@@ -27,7 +25,7 @@ RUN pip install -r requirements.txt
 ### Create system group and account
 # groupadd -r Create a system group
 # useradd -r -g: Create a system account -g The group name or number of the user's initial login group.
-RUN groupadd -r njokosi && useradd -r -g njokosi njokosi
+RUN groupadd -r innvvo && useradd -r -g innvvo innvvo
 
 
 RUN apt-get update \
@@ -51,23 +49,35 @@ RUN apt-get update \
 
 
 RUN mkdir -p /app/media /app/static \
-    && chown -R njokosi:njokosi /app/
-
-EXPOSE 8000
-
-
-# Label the project docker 
-LABEL org.opencontainers.image.title="innvvo/njokosi"                                  \
-    org.opencontainers.image.description="\
-    A modular, high performance, headless blogging platform built with Python, \
-    DjangoRestFramework, Django, and NextJS."                                                         \
-    org.opencontainers.image.url="https://saleor.io/"                                \
-    org.opencontainers.image.source="https://github.com/Njokosi/django-blogapi"              \
-    org.opencontainers.image.revision="$COMMIT_ID"                                   \
-    org.opencontainers.image.version="$PROJECT_VERSION"                              \
-    org.opencontainers.image.authors="Kawunju BIC Limited (https://mirumee.com)"        \
-    org.opencontainers.image.licenses="ISC"
+    && chown -R innvvo:innvvo /app/
 
 
 # Copy project
 COPY . /app
+
+ARG STATIC_URL
+ENV STATIC_URL ${STATIC_URL:-/static/}
+RUN SECRET_KEY=dummy STATIC_URL=${STATIC_URL} python3 manage.py collectstatic --no-input
+
+
+EXPOSE 8000
+
+ARG COMMIT_ID
+ARG PROJECT_VERSION
+ENV PROJECT_VERSION="${PROJECT_VERSION}"
+
+
+# Label the project docker
+LABEL org.opencontainers.image.title="innvvo/njokosi"                                  \
+    org.opencontainers.image.description="\
+    A modular, high performance, headless blogging platform built with Python, \
+    DjangoRestFramework, Django, and NextJS."                                                         \
+    org.opencontainers.image.url="https://github.com/Njokosi/django-blogapi"                                \
+    org.opencontainers.image.source="https://github.com/Njokosi/django-blogapi"              \
+    org.opencontainers.image.revision="$COMMIT_ID"                                   \
+    org.opencontainers.image.version="$PROJECT_VERSION"                              \
+    org.opencontainers.image.authors="Innvvo Inc (https://innvvo.com)"        \
+    org.opencontainers.image.licenses="BSD 3"
+
+
+
