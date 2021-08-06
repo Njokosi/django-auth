@@ -27,7 +27,7 @@ RUN pip install -r requirements.txt
 ### Create system group and account
 # groupadd -r Create a system group
 # useradd -r -g: Create a system account -g The group name or number of the user's initial login group.
-RUN groupadd -r saleor && useradd -r -g saleor saleor
+RUN groupadd -r njokosi && useradd -r -g njokosi njokosi
 
 
 RUN apt-get update \
@@ -49,9 +49,24 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 
+
+RUN mkdir -p /app/media /app/static \
+    && chown -R njokosi:njokosi /app/
+
 EXPOSE 8000
 
 
+# Label the project docker 
+LABEL org.opencontainers.image.title="innvvo/njokosi"                                  \
+    org.opencontainers.image.description="\
+    A modular, high performance, headless blogging platform built with Python, \
+    DjangoRestFramework, Django, and NextJS."                                                         \
+    org.opencontainers.image.url="https://saleor.io/"                                \
+    org.opencontainers.image.source="https://github.com/Njokosi/django-blogapi"              \
+    org.opencontainers.image.revision="$COMMIT_ID"                                   \
+    org.opencontainers.image.version="$PROJECT_VERSION"                              \
+    org.opencontainers.image.authors="Kawunju BIC Limited (https://mirumee.com)"        \
+    org.opencontainers.image.licenses="ISC"
 
 
 # Copy project
