@@ -20,7 +20,7 @@ WORKDIR /app
 
 # Install python dependencies
 COPY requirements.txt /app/
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt --no-cache-dir
 
 ### Create system group and account
 # groupadd -r Create a system group
@@ -30,21 +30,18 @@ RUN groupadd -r innvvo && useradd -r -g innvvo innvvo
 
 RUN apt-get update \
     && apt-get install -y \
-    libcairo2 \
-    libgdk-pixbuf2.0-0 \
-    liblcms2-2 \
-    libopenjp2-7 \
-    libpango-1.0-0 \
-    libpangocairo-1.0-0 \
-    libssl1.1 \
-    libtiff5 \
-    libwebp6 \
-    libxml2 \
-    libpq5 \
-    shared-mime-info \
-    mime-support \
+    build-essential \
+    vim \
+    python3 \
+    python3-pip \
+    python3-venv \
+    virtualenv \
+    git \
+    locales \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && pip3 install --upgrade pip
+
 
 
 
@@ -60,7 +57,6 @@ ENV STATIC_URL ${STATIC_URL:-/static/}
 RUN SECRET_KEY=dummy STATIC_URL=${STATIC_URL} python3 manage.py collectstatic --no-input
 
 
-EXPOSE 8000
 
 ARG COMMIT_ID
 ARG PROJECT_VERSION
