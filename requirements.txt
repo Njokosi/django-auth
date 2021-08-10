@@ -6,6 +6,7 @@ charset-normalizer==2.0.4; python_full_version >= "3.6.0" and python_version >= 
 codecov==2.1.12; (python_version >= "2.7" and python_full_version < "3.0.0") or (python_full_version >= "3.4.0")
 coverage==5.5; python_version >= "2.7" and python_full_version < "3.0.0" or python_full_version >= "3.5.0" and python_version < "4"
 distlib==0.3.2; python_full_version >= "3.6.1"
+django-environ==0.4.5
 django-filter==2.4.0; python_version >= "3.5"
 django==3.2.6; python_version >= "3.6"
 djangorestframework==3.12.4; python_version >= "3.5"
