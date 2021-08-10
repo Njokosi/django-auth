@@ -50,17 +50,17 @@ RUN mkdir -p /app/media /app/static \
 
 
 # Copy project
-COPY . /app
+COPY . /app/
 
-ARG STATIC_URL
-ENV STATIC_URL ${STATIC_URL:-/static/}
-RUN SECRET_KEY=dummy STATIC_URL=${STATIC_URL} python3 manage.py collectstatic --no-input
+# ARG STATIC_URL
+# ENV STATIC_URL ${STATIC_URL:-/static/}
+# RUN SECRET_KEY=dummy STATIC_URL=${STATIC_URL} python3 manage.py collectstatic --no-input
 
 
 
-ARG COMMIT_ID
-ARG PROJECT_VERSION
-ENV PROJECT_VERSION="${PROJECT_VERSION}"
+# ARG COMMIT_ID
+# ARG PROJECT_VERSION
+# ENV PROJECT_VERSION="${PROJECT_VERSION}"
 
 
 # Label the project docker
