@@ -151,3 +151,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 AUTH_USER_MODEL = 'users.CustomUser'
+
+
+# Total number of attempts before the user gets locked out.
+AXES_FAILURE_LIMIT = 8
