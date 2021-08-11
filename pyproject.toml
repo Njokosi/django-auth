@@ -14,6 +14,8 @@ django-filter = "^2.4.0"
 pre-commit = "^2.14.0"
 codecov = "^2.1.12"
 django-environ = "^0.4.5"
+psycopg2-binary = "^2.9.1"
+django-axes = "^5.20.0"
 
 [tool.poetry.dev-dependencies]
 
