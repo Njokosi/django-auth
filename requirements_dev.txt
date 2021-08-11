@@ -6,8 +6,10 @@ charset-normalizer==2.0.4; python_full_version >= "3.6.0" and python_version >= 
 codecov==2.1.12; (python_version >= "2.7" and python_full_version < "3.0.0") or (python_full_version >= "3.4.0")
 coverage==5.5; python_version >= "2.7" and python_full_version < "3.0.0" or python_full_version >= "3.5.0" and python_version < "4"
 distlib==0.3.2; python_full_version >= "3.6.1"
+django-axes==5.20.0; python_version >= "3.6" and python_version < "4.0"
 django-environ==0.4.5
 django-filter==2.4.0; python_version >= "3.5"
+django-ipware==3.0.7; python_version >= "3.6" and python_full_version < "3.0.0" and python_version < "4.0" or python_version >= "3.6" and python_version < "4.0" and python_full_version >= "3.6.0"
 django==3.2.6; python_version >= "3.6"
 djangorestframework==3.12.4; python_version >= "3.5"
 filelock==3.0.12; python_full_version >= "3.6.1"
@@ -17,6 +19,7 @@ markdown==3.3.4; python_version >= "3.6"
 nodeenv==1.6.0; python_full_version >= "3.6.1"
 platformdirs==2.2.0; python_version >= "3.6" and python_full_version >= "3.6.1"
 pre-commit==2.14.0; python_full_version >= "3.6.1"
+psycopg2-binary==2.9.1; python_version >= "3.6"
 pytz==2021.1; python_version >= "3.6"
 pyyaml==5.4.1; python_full_version >= "3.6.1"
 requests==2.26.0; python_version >= "2.7" and python_full_version < "3.0.0" or python_full_version >= "3.6.0"
