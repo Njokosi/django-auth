@@ -63,6 +63,7 @@ THIRD_PARTY_APPS = [
     'axes',
     'django_extensions',
     'rest_framework',
+    'rest_framework_simplejwt.token_blacklist',
 ]
 
 OUR_APPS = [
