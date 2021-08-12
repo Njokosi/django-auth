@@ -22,6 +22,7 @@ django-debug-toolbar = "^3.2.1"
 uritemplate = "^3.0.1"
 PyYAML = "^5.4.1"
 djangorestframework-simplejwt = "^4.7.2"
+drf-yasg = "^1.20.0"
 
 [tool.poetry.dev-dependencies]
 

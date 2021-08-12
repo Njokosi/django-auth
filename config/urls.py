@@ -29,7 +29,10 @@ urlpatterns = [
 
 urlpatterns += [
     path("api-auth/", include('rest_framework.urls')),
-    
+    path("openapi", get_schema_view(
+        title="Users API",
+        description="A sample API for accessing users",
+        version="0.1.0"), name="openapi-schema"),
 ]
 
 if not settings.ON_SERVER:
