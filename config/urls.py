@@ -13,9 +13,27 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
+from rest_framework.schemas import get_schema_view
+
+# This function attempts to import an admin module in each installed application.
+admin.autodiscover()
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
+
+
+urlpatterns += [
+    path("api-auth/", include('rest_framework.urls')),
+    
+]
+
+if not settings.ON_SERVER:
+    import debug_toolbar
+    urlpatterns = [
+        path('__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns
