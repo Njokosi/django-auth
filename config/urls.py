@@ -41,17 +41,18 @@ schema_view = get_schema_view(
         license=openapi.License(name="BSD License"),
     ),
     public=True,
-    permission_classes=(permissions.AllowAny,)
+    permission_classes=(permissions.IsAuthenticated,),
 )
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
 ]
 
 
 urlpatterns += [
-    path("api-auth/", include('rest_framework.urls')),
-    path("api/", schema_view.with_ui('redoc', cache_timeout=0), name="schema-redoc"),
+    path("api-auth/", include("rest_framework.urls")),
+    path("api/v1/auth/", include("dj_rest_auth.urls")),
+    path("api/v1/documentation/", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
     # path("openapi", get_schema_view(
     #     title="Users API",
     #     description="A sample API for accessing users",
@@ -60,6 +61,7 @@ urlpatterns += [
 
 if not settings.ON_SERVER:
     import debug_toolbar
+
     urlpatterns = [
-        path('__debug__/', include(debug_toolbar.urls)),
+        path("__debug__/", include(debug_toolbar.urls)),
     ] + urlpatterns
