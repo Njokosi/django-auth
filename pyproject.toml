@@ -23,6 +23,9 @@ uritemplate = "^3.0.1"
 PyYAML = "^5.4.1"
 djangorestframework-simplejwt = "^4.7.2"
 drf-yasg = "^1.20.0"
+dj-rest-auth = "^2.1.11"
+django-allauth = "^0.45.0"
+whitenoise = "^5.3.0"
 
 [tool.poetry.dev-dependencies]
 
