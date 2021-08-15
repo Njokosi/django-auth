@@ -271,14 +271,17 @@ REST_FRAMEWORK = {
 # AXES::: Total number of attempts before the user gets locked out.
 AXES_FAILURE_LIMIT = 10
 
-# TODO: JWT::: Settings
+# TODO: JWT::: Settings, change and remove secret key
 # https://github.com/mahieyin-rahmun/NextJsWithDRFExample/blob/main/backend/nextjsdrfbackend/settings.py
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=1),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=30),
+    "ROTATE_REFRESH_TOKENS": True,
+    "BLACKLIST_AFTER_ROTATION": True,
+    "UPDATE_LAST_LOGIN": True,
     "USER_ID_FIELD": "id",  # for the custom user model
-
+    "USER_ID_CLAIM": "Id",
 }
 
 JWT_COOKIE_NAME = env.str("JWT_COOKIE_NAME", default="refresh_token")
