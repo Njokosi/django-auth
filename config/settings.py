@@ -62,17 +62,18 @@ THIRD_PARTY_APPS = [
     "axes",
     "django_extensions",
     "rest_framework",
+    "rest_framework.authtoken",
     "rest_framework_simplejwt.token_blacklist",
     "drf_yasg",
 ]
 
 AUTHENTICATION_THIRD_PARTY_APPS = [
     "dj_rest_auth",
-    "dj_rest_auth.registration",
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
     "allauth.socialaccount.providers.google",
+    "dj_rest_auth.registration",
 ]
 
 OUR_APPS = [
