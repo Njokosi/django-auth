@@ -10,7 +10,7 @@ django-environ==0.4.5
 django-filter==2.4.0; python_version >= "3.5"
 django==3.2.6; python_version >= "3.6"
 djangorestframework==3.12.4; python_version >= "3.5"
-filelock==3.0.12; python_full_version >= "3.6.1"
+filelock==3.7.0; python_full_version >= "3.6.1"
 identify==2.2.13; python_full_version >= "3.6.1"
 idna==3.2; python_version >= "3.5" and python_full_version < "3.0.0" or python_full_version >= "3.6.0" and python_version >= "3.5"
 markdown==3.3.4; python_version >= "3.6"
