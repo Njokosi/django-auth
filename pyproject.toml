@@ -11,7 +11,7 @@ Django = "^3.2.6"
 djangorestframework = "^3.12.4"
 Markdown = "^3.3.4"
 django-filter = "^2.4.0"
-pre-commit = "^2.14.0"
+pre-commit = "^3.0.1"
 codecov = "^2.1.12"
 django-environ = "^0.4.5"
 
